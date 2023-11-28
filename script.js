@@ -1,21 +1,47 @@
-// Ej.1 -Crear la clase Persona, con propiedades nombre, edad y género, y el método obtDetalles(), que muestra por pantalla las propiedades de la persona.
+// Ej.1
+class persona {
+  constructor(nombre, edad, genero) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.genero = genero;
+  }
 
-const persona = {
-    nombre: "Raul",
-    edad:26,
-    género:"M"
+  obDetalles(){
+    return `Soy${this.nombre} tengo ${this.edad} y soy ${this.genero}`
+}
+}
+
+class estudiante extends persona{
+    constructor(nombre,edad,genero,curso,grupo){
+        super(nombre,edad,genero);
+        this.curso= curso;
+        this.grupo=grupo;
+    }
+    registrar(){
+        return `Soy${this.nombre} tengo ${this.edad} y soy ${this.genero} voy a ${this.curso}del grupo ${this.grupo}`
+    }
+}
+
+class profesor extends persona{
+    constructor(nombre,edad,genero,asignatura,nivel){
+        super(nombre,edad,genero)
+        this.asignatura=asignatura;
+        this.nivel=nivel;
+    }
+    asignar(){
+        return `Soy${this.nombre} tengo ${this.edad} y soy ${this.genero} profesor de  ${this.asignatura}de nivel ${this.nivel}`
+
+    }
 }
 
 
-//  Ej.2 - Crear la clase Estudiante, que hereda de Persona, e incluye las propiedades curso y grupo y el método registrar(), que muestre por pantalla el resultado.
 
+const persona1 = new persona("Raul",26,"M")
+const alumno = new estudiante("Raul",26,"M",3,"C")
+const profe= new profesor("Raul",26,"M","FullStack","Omega")
+console.log(persona1);
+console.log(alumno);
+console.log(profe);
 
-
-
-//  Ej. 3 -Crear la clase Profesor, que hereda de Persona, e incluye las propiedades asignatura y nivel y el método asignar(), que muestre por pantalla el resultado.
-
-
-
-
-//  Ej. 4 -Crear los objetos y casos de prueba necesarios para comprobar el correcto funcionamiento de la jerarquía de clases.
+// Ej. 2
 
